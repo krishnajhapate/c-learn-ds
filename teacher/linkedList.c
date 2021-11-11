@@ -78,10 +78,11 @@ struct Node *addNodeAfter(struct Node *head, int value, int pos)
     }
     else
     {
-        q = p->next;
+        q = p;
         q->next = temp;
         temp->next = q;
     }
+    return (head);
 }
 
 // Traversing linkedlist
@@ -99,9 +100,32 @@ int main()
     struct Node *head;
     head = NULL;
     int value, ins, aft;
-    int ch =1 ;
-    while (ch==1){
-        printf("Enter to va`")
+    int ch = 1;
+    while (ch == 1)
+    {
+        printf("Enter value to be inserted in linked list");
+        scanf("%d", &value);
+        printf("\nEnter place to insert: \n");
+        printf("1... First\n2...After\n3...Last");
+        scanf("%d", &ins);
+        switch (ins)
+        {
+        case 1:
+            head = addNodeFirst(head, value);
+            break;
+        case 2:
+            printf("\n Enter place: ");
+            scanf("%d", &aft);
+            head = addNodeAfter(head, value, aft);
+            break;
+        case 3:
+            head = addNodeLast(head, value);
+            break;
+        }
+        printf("\nDo you want to continue : YES-1/No-0 :\n");
+        scanf("%d ", &ch);
     }
+    printlist(head);
+
     return 0;
 }
