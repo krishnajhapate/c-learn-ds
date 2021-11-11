@@ -59,9 +59,49 @@ struct Node *addNodeLast(struct Node *head, int value)
     return (head);
 }
 
+// Inserting after
+struct Node *addNodeAfter(struct Node *head, int value, int pos)
+{
+    struct Node *temp, *p, *q;
+    temp = createNode();
+    temp->data = value;
+    int count = 0;
+    p = head;
+    while (p == NULL || (count < pos))
+    {
+        p = p->next;
+        count++;
+    }
+    if (count < pos)
+    {
+        printf("\n Underflow");
+    }
+    else
+    {
+        q = p->next;
+        q->next = temp;
+        temp->next = q;
+    }
+}
+
+// Traversing linkedlist
+void printlist(struct Node *head)
+{
+    while (head != NULL)
+    {
+        printf(" %d ", head->data);
+        head = head->next;
+    }
+}
+
 int main()
 {
-    printf("%s", createNode());
-    printf("Hello world");
+    struct Node *head;
+    head = NULL;
+    int value, ins, aft;
+    int ch =1 ;
+    while (ch==1){
+        printf("Enter to va`")
+    }
     return 0;
 }
